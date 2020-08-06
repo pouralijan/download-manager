@@ -1,0 +1,23 @@
+
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  CppCkeck:
+      name: CppCkeck
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: CppCheck
+          uses: pouralijan/CppCheck@master
+      env:
+          DIRS: src
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: mkdir bin && cd bin && cmake .. && make -j
+    - name: run
+      run: ./main
