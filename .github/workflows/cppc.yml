@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Install Dependensies
+      run: apt install gtest
     - name: build
       run: mkdir bin && cd bin && cmake .. && make -j
     - name: run
