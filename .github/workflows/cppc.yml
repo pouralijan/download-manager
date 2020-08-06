@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependensies
-      run: apt install gtest
+      run: sudo apt install gtest
     - name: build
       run: mkdir bin && cd bin && cmake .. && make -j
     - name: run
